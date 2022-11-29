@@ -1,3 +1,4 @@
+#https://madhurendra.com/pdf-signing-using-hardware-token-dsc-in-python/
 #!/usr/bin/env vpython3
 # *-* coding: utf-8 *-*
 import sys

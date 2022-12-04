@@ -1,12 +1,12 @@
 # Importing the PIL library
 import os,sys,json,datetime
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
+from PIL                 import Image
+from PIL                 import ImageDraw
+from PIL                 import ImageFont
 from endesive.pdf        import cms
 from reportlab.pdfgen    import canvas
 from cryptography.hazmat import backends
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2              import PdfFileWriter, PdfFileReader
 from digital_certificate.cert import Certificate
 from cryptography.hazmat.primitives.serialization import pkcs12
 

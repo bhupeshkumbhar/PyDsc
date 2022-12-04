@@ -10,19 +10,20 @@ cert = Certificate(
 cert.read_pfx_file()
 
 # Get Serial Number
-print(cert.serial_number())
+#print(cert.serial_number())
 
 # Get not valid before date
-print(cert.not_valid_before())
+#print(cert.not_valid_before())
 
 # Get not valid after date
-print(cert.not_valid_after())
+#print(cert.not_valid_after())
 
 # Get subject name
-print(cert.subject())
+#print(cert.subject())
 
 # Get owner name
 print(cert.common_name())
 
 # Get Issuer name
-print(cert.issuer())
+#print(cert.common_name_split_issuer())
+#print(cert.issuer())

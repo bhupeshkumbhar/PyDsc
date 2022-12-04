@@ -1,14 +1,14 @@
 from reportlab.pdfgen import canvas
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
-c = canvas.Canvas('dsc_image.pdf')
-c.drawImage('dsc_signed.png', 370, 16)
+c = canvas.Canvas('inp/9100602265_ZBAL_00_img.pdf')
+c.drawImage('cfg/dsc_out.png', 370, 16)
 #c.drawString(350, 50,"Hello World")
 c.save()
 
-dsc_image = PdfFileReader(open("dsc_image.pdf", "rb"))
+dsc_image = PdfFileReader(open("inp/9100602265_ZBAL_00_img.pdf", "rb"))
 output_file = PdfFileWriter()
-input_file = PdfFileReader(open("inv_copy.pdf", "rb"))
+input_file = PdfFileReader(open("inp/9100602265_ZBAL_00_inp.pdf", "rb"))
 page_count = input_file.getNumPages()
 
 
@@ -19,5 +19,5 @@ for page_number in range(page_count):
     # add page from input file to output document
     output_file.addPage(input_page)
 
-with open("document-output.pdf", "wb") as outputStream:
+with open("inp/9100602265_ZBAL_00_out.pdf", "wb") as outputStream:
     output_file.write(outputStream)

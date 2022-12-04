@@ -1,0 +1,4 @@
+certifi
+cffi
+cryptography
+pyOpenSSL

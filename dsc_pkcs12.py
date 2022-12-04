@@ -27,7 +27,7 @@ def main():
         "auto_sigfield": True,
         "sigandcertify": True,
         "signaturebox": (350, 30, 550, 80),
-        "signature": "UMASONS PVT LTD",
+        "signature": "",
         "signature_img": "signature_test.png",
         "contact": "bhupesh.kumbhar@zencon.co.in",
         "location": "Pune",
@@ -39,7 +39,10 @@ def main():
         p12 = pkcs12.load_key_and_certificates(
             fp.read(), b"Test@123", backends.default_backend()
         )
-    fname = "inv_copy.pdf"
+
+    
+    
+    fname = "document-output.pdf"
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     datau = open(fname, "rb").read()
@@ -48,6 +51,5 @@ def main():
     with open(fname, "wb") as fp:
         fp.write(datau)
         fp.write(datas)
-
 
 main()

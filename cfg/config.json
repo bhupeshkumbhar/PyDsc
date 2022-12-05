@@ -1,36 +1,43 @@
-
 {
 	"DSC_PKCS_TYPE": "PKCS12",
 	"DSC_PKCS_CARD": "epass2003",
 	"DSC_PKCS_PSWD": "VGVzdEAxMjM=",
-	"DSC_ROOT_FLDR": "C:\\iSign",
-	"DSC_OUTP_FLDR": "C:\\iSign",
+	"DSC_ROOT_FLDR": "/usr/iSign",
+	"DSC_OUTP_FLDR": "/usr/iSign",
 	"DSC_JLOG_FILE": "cfg/log4j.properties",
 	"DSC_PRNT_FILE": false,
 	"DSC_SIGN_PAGE": "0",
 	"DSC_OUTP_LIST": {
-		"ZBAL": [5,430, 53, 250, 50],
-		"INVL": [3,400, 50, 200, 50],
-		"ZSTO": [3,330, 42, 185, 50],
-		"ZSTI": [3,330, 42, 185, 60],
-		"ZGBI": [3,330, 42, 185, 60],
-		"ZSUB": [3,347, 195,185, 60],
-		"ZDRN": [3,370, 65, 200, 56],
-		"DFLT": [3,240, 55, 120, 40],
+		"RD00": [4,200, 80, 200, 56],
+		"INVL": [4,400, 50, 200, 50],
+		"ZGST": [4,400, 67, 200, 50],
+		"ZCRN": [4,600, 100, 200, 50],
+		"ZCRP": [4,600, 100, 200, 50],
+		"ZCPR": [4,600, 100, 200, 50],
+		"AMND": [4,600, 100, 200, 50],
+		"INVC": [4,600, 45, 200, 65],
+		"DFLT": [4,400, 80, 200, 60],
+		"ZNRF": [4,400, 300, 200, 45],
+		"ZSTO": [4,655, 62, 250, 48],
+		"CHLN": [4,665, 75, 200, 50],
 		"TEXT": [6,15,30,45,60,75,3]
 	},
 	"DSC_CERT_LIST": {
+		"IN36": {
+			"DSC_CERT_PATH": "cfg/dsc_IN36.pfx",
+			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
+		},
 		"1100": {
 			"DSC_CERT_PATH": "cfg/dsc_1100.pfx",
-			"DSC_CERT_PSWD": "VGVzdEAxMjM="
+			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
 		},
-		"SA01": {
-			"DSC_CERT_PATH": "cfg/dsc_SA01.pfx",
-			"DSC_CERT_PSWD": "VGVzdEAxMjM="
+		"2011": {
+			"DSC_CERT_PATH": "cfg/dsc_2011.pfx",
+			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
 		},
 		"DFLT": {
-			"DSC_CERT_PATH": "cfg/dsc_1000.pfx",
-			"DSC_CERT_PSWD": "YWNnbEAxMjM="
+			"DSC_CERT_PATH": "cfg/dsc_DFLT.pfx",
+			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
 		}
 	},
 	"DSC_PKCS_LIST": {
@@ -39,3 +46,6 @@
 		"iSafeSign": "name=eToken\nlibrary=C:\\Windows\\System32\\aetpkss1.dll"
 	}
 }
+
+
+

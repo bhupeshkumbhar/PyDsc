@@ -31,8 +31,9 @@ def add_stamp(inp_data):
 
 def view_xpdf(inp_data):
     inp_file = inp_data[0]
-    dsc_file = inp_file.replace("inp/","out/")
-    dsc_file = dsc_file.replace("_inp","_signed")
+    dsc_file = inp_file.replace("_inp","_signed")
+    dsc_file = dsc_file.replace("inp\\","out\\")
+    
     dsc_file = os.path.abspath(dsc_file)
     os.system(dsc_file)
 

@@ -12,7 +12,6 @@ def set_dsign(inp_data):
     dsc_outp = inp_data[2]
     dsc_ccod = inp_data[3]
     dsc_cord = cfg_json["DSC_OUTP_LIST"][dsc_outp]
-    print(dsc_cord[1])
     img_file = inp_file.replace("_inp","_img")
     out_file = inp_file.replace("_inp","_out")
     dsc_file = out_file.replace("inp/","out/")

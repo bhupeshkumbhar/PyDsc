@@ -1,28 +1,38 @@
-import os
+import os,json
 from reportlab.pdfgen import canvas
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
-def add_stamp():
-    c = canvas.Canvas('inp/9100602265_ZBAL_00_img.pdf')
-    c.drawImage('cfg/dsc_out.png', 370, 16)
-    c.save()
+def add_stamp(inp_data):
+    inp_file = inp_data[0]
+    dsc_outp = inp_data[2]
+    cfg_file = open('cfg/config.json')
+    cfg_json = json.load(cfg_file)
+    dsc_cord = cfg_json["DSC_OUTP_LIST"][dsc_outp]
+    img_file = inp_file.replace("_inp","_img")
 
-    dsc_image = PdfFileReader(open("inp/9100602265_ZBAL_00_img.pdf", "rb"))
-    output_file = PdfFileWriter()
-    input_file = PdfFileReader(open("inp/9100602265_ZBAL_00_inp.pdf", "rb"))
-    page_count = input_file.getNumPages()
-
-
-    for page_number in range(page_count):
+    inp_canv = canvas.Canvas(img_file)
+    inp_canv.drawImage('cfg/dsc_out.png', dsc_cord[1], dsc_cord[2])
+    inp_canv.save()
+    
+    img_file = PdfFileReader(open(img_file, "rb"))
+    pdf_read = PdfFileReader(open(inp_file, "rb"))
+    pdf_writ = PdfFileWriter()
+    out_file = inp_file.replace("_inp","_out")
+    pdf_pcnt = pdf_read.getNumPages()
+    
+    for pdf_page in range(pdf_pcnt):
         # merge the watermark with the page
-        input_page = input_file.getPage(page_number)
-        input_page.mergePage(dsc_image.getPage(0))
-        # add page from input file to output document
-        output_file.addPage(input_page)
+        inp_page = pdf_read.getPage(pdf_page)
+        inp_page.mergePage(img_file.getPage(0))
+        pdf_writ.addPage(inp_page)
+    
+    with open(out_file, "wb") as outputStream:
+        pdf_writ.write(outputStream)
 
-    with open("inp/9100602265_ZBAL_00_out.pdf", "wb") as outputStream:
-        output_file.write(outputStream)
-
-def view_xpdf():
-    os.system("D:\Projects\pyDsc\out\9100602265_ZBAL_00_signed.pdf")
+def view_xpdf(inp_data):
+    inp_file = inp_data[0]
+    dsc_file = inp_file.replace("inp/","out/")
+    dsc_file = dsc_file.replace("_inp","_signed")
+    dsc_file = os.path.abspath(dsc_file)
+    os.system(dsc_file)
 

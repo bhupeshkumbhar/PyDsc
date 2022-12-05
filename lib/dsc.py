@@ -19,9 +19,9 @@ def set_dsign(inp_data):
     dsc_path = cfg_json["DSC_CERT_LIST"][dsc_ccod]["DSC_CERT_PATH"]
     dsc_pswd = cfg_json["DSC_CERT_LIST"][dsc_ccod]["DSC_CERT_PSWD"]
     dsc_pswd = base64.b64decode(dsc_pswd)
-    date = datetime.datetime.utcnow() - datetime.timedelta(hours=12)
-    date = date.strftime("D:%Y%m%d%H%M%S+00'00'")
-    dct = {
+    dsc_date = datetime.datetime.utcnow() - datetime.timedelta(hours=12)
+    dsc_date = dsc_date.strftime("D:%Y%m%d%H%M%S+00'00'")
+    dsc_dict = {
         "aligned": 0,
         "sigflags": 3,
         "sigflagsft": 132,
@@ -35,7 +35,7 @@ def set_dsign(inp_data):
         "signature_img": "",
         "contact": "",
         "location": "",
-        "signingdate": date,
+        "signingdate": dsc_date,
         "reason": "Digital Sign",
         "password": "Test@123",
     }
@@ -46,7 +46,7 @@ def set_dsign(inp_data):
         )
 
     out_data = open(out_file, "rb").read()
-    dsc_data = cms.sign(out_data, dct, dsc_cert[0], dsc_cert[1], dsc_cert[2], "sha256")
+    dsc_data = cms.sign(out_data, dsc_dict, dsc_cert[0], dsc_cert[1], dsc_cert[2], "sha256")
 
     with open(dsc_file, "wb") as fp:
         fp.write(out_data)

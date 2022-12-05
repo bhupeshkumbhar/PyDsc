@@ -5,8 +5,8 @@ from cryptography.hazmat import backends
 from cryptography.hazmat.primitives.serialization import pkcs12
 
 def set_dsign(inp_data):
-    cfg_file = open('cfg/config.json')
-    cfg_json = json.load(cfg_file)
+    with open('cfg/config.json') as cfg_file:
+        cfg_json = json.load(cfg_file)
     inp_file = inp_data[0]
     dsc_date = inp_data[1]
     dsc_outp = inp_data[2]

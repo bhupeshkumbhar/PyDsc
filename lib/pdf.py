@@ -1,6 +1,6 @@
 import os,json
 from reportlab.pdfgen import canvas
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfReader,PdfWriter
 
 def add_stamp(inp_data):
     inp_path = inp_data[0]
@@ -15,17 +15,16 @@ def add_stamp(inp_data):
     inp_canv.save()
     img_file = open(img_path, "rb")
     inp_file = open(inp_path, "rb")
-    img_cont = PdfFileReader(img_file)
-    inp_cont = PdfFileReader(inp_file)
-    pdf_writ = PdfFileWriter()
+    img_cont = PdfReader(img_file)
+    inp_cont = PdfReader(inp_file)
+    pdf_writ = PdfWriter()
     out_path = inp_path.replace("_inp","_out")
-    pdf_pcnt = inp_cont.getNumPages()
-    
+    pdf_pcnt = len(inp_cont.pages)
     for pdf_page in range(pdf_pcnt):
         # merge the watermark with the page
-        inp_page = inp_cont.getPage(pdf_page)
-        inp_page.mergePage(img_cont.getPage(0))
-        pdf_writ.addPage(inp_page)
+        inp_page = inp_cont.pages[pdf_page]
+        inp_page.merge_page(img_cont.pages[0])
+        pdf_writ.add_page(inp_page)
     
     with open(out_path, "wb") as outputStream:
         pdf_writ.write(outputStream)

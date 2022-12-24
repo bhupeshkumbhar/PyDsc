@@ -14,8 +14,9 @@ def set_dsign(inp_data):
     dsc_cord = cfg_json["DSC_OUTP_LIST"][dsc_outp]
     img_file = inp_file.replace("_inp","_img")
     out_file = inp_file.replace("_inp","_out")
-    dsc_file = out_file.replace("_out","_signed")
+    dsc_file = inp_file.replace("_inp","_signed")
     dsc_file = dsc_file.replace("inp\\","out\\")
+    print('File Name : ' + dsc_file)
     dsc_path = cfg_json["DSC_CERT_LIST"][dsc_ccod]["DSC_CERT_PATH"]
     dsc_pswd = cfg_json["DSC_CERT_LIST"][dsc_ccod]["DSC_CERT_PSWD"]
     dsc_pswd = base64.b64decode(dsc_pswd)

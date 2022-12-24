@@ -1,4 +1,4 @@
 @echo off
-cd D:\Projects\pyDsc
+cd D:\usr\sap\trans\PyDsc
 call .\venv\Scripts\Activate.bat
-py otp_auth.py  %1  %2 %3
+D:\usr\sap\trans\PyDsc\venv\Scripts\python.exe otp_auth.py  %1  %2 %3

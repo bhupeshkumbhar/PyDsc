@@ -31,6 +31,10 @@
 			"DSC_CERT_PATH": "cfg/dsc_1100.pfx",
 			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
 		},
+		"BAPL": {
+			"DSC_CERT_PATH": "cfg/dsc_1100.pfx",
+			"DSC_CERT_PSWD": "MTIzNDU2Nzg="
+		},
 		"2011": {
 			"DSC_CERT_PATH": "cfg/dsc_2011.pfx",
 			"DSC_CERT_PSWD": "MTIzNDU2Nzg="

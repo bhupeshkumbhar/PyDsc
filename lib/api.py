@@ -12,9 +12,6 @@ def company_details(inp_data):
     api_body = { "id_number": "U74999PN2017PTC168776"}
 
     api_resp = requests.post(api_xurl,headers=api_head,json=api_body)
-    table = pd.read_json(api_resp.json(), typ='series')
-    print(table)
-
-inp_data={}
-company_details(inp_data)
+    print(api_resp.json())
+    
 
